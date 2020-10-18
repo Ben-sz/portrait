@@ -48,9 +48,30 @@ body{
   height: 60px;
   background-color:  #F94040;
   line-height: 42px;
+  
 
   background: #F94040;
- 
+  
+}
+
+
+
+.fade-right{
+  margin-left: -20px;
+  transition: all 0.3s ease;
+
+  &:hover{
+    margin-left: 0px;}
+}
+
+
+.fade-left{
+  margin-left: 20px;
+  transition: all 0.3s ease;
+
+  &:hover{
+  margin-left: 0px;
+  }
 }
 
 
@@ -93,21 +114,36 @@ body{
 
 .xp-text{
  
+  margin-left: 20px;
   width: 60vw;
   h1{
   color: #F94040;
   font-size: 40px;
   line-height: 40px;
   margin: 25px 0px;
+
+  transition: all 0.3s ease;
+
+  &:hover{
+  margin-left: -10px;
+  }
+  
+    
   }
   h2{
     color: #F94040;
-
     font-size: 35px;
     line-height: 40px;
     font-weight: 100;
     margin: 25px 0px;
+
+    transition: all 0.3s ease;
+
+    &:hover{
+      margin-left: -10px;
     }
+  }
+
 
 }
 
