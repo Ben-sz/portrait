@@ -1,14 +1,48 @@
-.icon-button{
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  background: #000000;
-  box-shadow:  20px 20px 60px #464646, 
-               -20px -20px 60px #5e5e5e;
+body{
+  background-color:   #FF6363;
 }
 
 
-.nav-main{
-  width:100%;
+.icon-button{
+  width: 70px;
+  height: 70px;
+  margin: 20px 50px;
+
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+/* animation */
+  background: linear-gradient(145deg, #D95454, #FF7272);
+  border-radius: 100%;
+  box-shadow: 9.01px 9.01px 12px #DA5555, -9.01px -9.01px 12px #FF7171;
+
+  &:active {
+    background: linear-gradient(145deg, #D95454, #FF7272);
+    border-radius: 100%;
+    box-shadow: inset 9.01px 9.01px 12px #DA5555, inset -9.01px -9.01px 12px #FF7171;
+  }
+}
+
+.fa-icon{
+  padding-top: 5px;
+  font-size: 30px;
+  color: white;
+
+}
+
+.nav-main{
+  background-color:   #FF6363;
+  display: block;
+}
+
+.icon-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body{
+  background-color:   #FF6363;
 }
