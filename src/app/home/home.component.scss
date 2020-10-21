@@ -1,7 +1,186 @@
+$color-black: #515151;
+$color-purple: #AFACF2;
+$color-peach: #F9B1AA;
+$color-mint: #AAF0D1;
+
+
+
+
 body{
-  background-color: #fdfffc;
+
+  font-family: 'Overpass', sans-serif;
 }
 
-body {
-  background-color: lightblue;
+.top-1{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  margin: 5rem auto;
+  margin-bottom: 10rem;
+  .top1-main{
+    width: 60vw;
+    margin-left: 0;
+    margin-top: 3rem;
+  }
+ 
+  img{
+    /* height: 20rem; */
+    width: 10rem;
+    margin-right: 10vw;
+  }
+}
+
+.name-text{
+  margin-right: 10%;
+  text-align: right;
+ 
+  color: $color-black;
+  h1 {
+
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 72px;
+    margin: 0;
+   
+  }
+  h3{
+    font-weight: 100;
+    font-size: 50px;
+    line-height: 50px;
+    margin: 0;
+  }
+}
+
+.fade-right{
+  margin-left: -20px;
+  transition: all 0.3s ease;
+
+  &:hover{
+    margin-left: 0px;}
+}
+
+
+.fade-left{
+  margin-left: 20px;
+  transition: all 0.3s ease;
+
+  &:hover{
+  margin-left: 0px;
+  }
+}
+
+
+
+.block-1{
+  display: block;
+  width: 100%;
+
+}
+
+.block-left{
+  width: 50%;
+  margin-right: auto;
+  margin-left: 0;
+  padding-bottom: 50px;
+
+}
+
+
+.block-right{
+  width: 50%;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: center;
+  padding-bottom: 50px;
+
+
+}
+
+.xp-text{
+  margin-top: -100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  h1{
+    color:  white;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 40px;
+    transition: all 0.3s ease;
+    margin-top: 70px;
+    &:hover{
+   /*  margin-left: -10px; */
+    }
+    
+      
+    }
+    h2{
+      color:  white;
+      font-size: 28px;
+      line-height: 28px;
+      font-weight: 100;
+      margin-top: 5px;
+      margin-bottom: 20px;
+  
+      transition: all 0.3s ease;
+  
+      &:hover{
+      /*   margin-left: -10px; */
+      }
+    }
+  
+}
+.purplebg{
+  background-color: $color-purple;
+}
+
+.peachbg{
+  background-color:  $color-peach;
+}
+
+.mintbg{
+  background-color:  $color-mint;
+}
+
+.purplecolor{
+  color: $color-purple;
+}
+
+.peachcolor{
+  color:  $color-peach;
+}
+
+.mintcolor{
+  color:  $color-mint;
+}
+
+
+.titletext{
+  text-align: center;
+  position: relative;
+  bottom: 70px;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 72px;
+  
+}
+
+
+.pr-logo{
+  margin-top: 50px;
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  transition: all 0.3s ease;
+
+  img{
+    &:hover{
+
+
+    }  
+}
+}
+
+
+.block-3{
+  height: 500px;
 }

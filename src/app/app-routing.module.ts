@@ -6,8 +6,8 @@ import { HomeComponent } from './home/home.component'
 
 
 const routes: Routes = [
-  { path: '', component: CocolioComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'cocolio', component: CocolioComponent },
+  { path: '', component: HomeComponent },
   
 ];
 
