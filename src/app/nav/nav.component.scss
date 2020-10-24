@@ -1,5 +1,7 @@
+$color-mint: #AAF0D1;
+
 body{
-  background-color:   #FF6363;
+/*   background-color:   #FF6363; */
 }
 
 
@@ -44,6 +46,37 @@ body{
   justify-content: center;
 }
 
-body{
-  background-color:   #FF6363;
+.nav-top{
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+
+}
+
+.nav-button{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  height:80%;
+  padding-left: 20px;
+  padding-right: 50px;
+
+  display:flex;justify-content:center;align-items:center;
+  a{
+    color: $color-mint;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+    text-decoration: none;
+    transition: transform 0.5s;
+
+
+    &:hover{
+      transform: scale(1.3);
+/*       font-weight: bold; */
+    }
+  }
+
 }
