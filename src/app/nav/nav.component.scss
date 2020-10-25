@@ -48,12 +48,21 @@ body{
 
 .nav-top{
   height: 50px;
-  display: flex;
-  justify-content: flex-end;
+  display: block;
+
   padding-right: 30px;
 
 }
 
+.nav-wrapper{
+  margin-right: 0;
+  margin-left: auto;
+  width: 50rem;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+}
 .nav-button{
   margin-top: 10px;
   margin-bottom: 5px;
