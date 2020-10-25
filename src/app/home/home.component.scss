@@ -140,6 +140,11 @@ body{
   background-position: 50% 10%;
 }
 
+.links-bg{
+  background-image: url('../../assets/images/links.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+}
 
 .xp-box{
   border-radius: 31px;
@@ -176,8 +181,47 @@ body{
       /*   margin-left: -10px; */
       }
     }
-  
 }
+
+
+.contacts-text{
+  margin-left: 2rem;
+margin-right: 2rem;
+text-align: center;
+  h1{
+    color:  white;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 40px;
+    
+    }
+ 
+}
+
+.links-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+  color:  white;
+    h1{
+      color:  white;
+      font-size: 30px;
+      font-weight: normal;
+      line-height: 40px;
+      
+      transition: all 0.3s ease-in-out;
+      &:hover{
+        transform: scale(1.2);
+  
+      } 
+
+      }
+
+}
+
 .purplebg{
   background-color: $color-purple;
 }
