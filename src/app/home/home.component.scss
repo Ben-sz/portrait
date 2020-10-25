@@ -81,9 +81,11 @@ body{
   }
 }
 
+.block-margin{
+  margin-bottom: 10rem;
+}
 
-
-.block-1{
+.block-main{
   display: inline-block;
   width: 100%;
   box-sizing: border-box;
@@ -97,18 +99,14 @@ body{
 
 .block-child {
   flex: 1;
+  max-width: 100%;
 }  
 
-/* .block-child:first-child {
-  margin-right: 20px;
-}  */
 
-.xp-title{
-
+.block-title{
   text-align: center;
   margin-top: 100px;
   h1{
-    color: $color-purple;
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
@@ -119,14 +117,35 @@ body{
    /*  margin-left: -10px; */
     }
   }
+}
 
+.xp-bg{
+  background-image: url('../../assets/images/Experience.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+}
+
+.projects-bg{
+  background-image: url('../../assets/images/projects.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+}
+
+.contacts-bg{
+  background-image: url('../../assets/images/contacts.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
 }
 
 
+.xp-box{
+  border-radius: 31px;
+}
+
 
 .xp-text{
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 2rem;
+  margin-right: 2rem;
   h1{
     color:  white;
     font-size: 30px;
@@ -193,21 +212,24 @@ body{
 
 
 .pr-logo{
-  margin-top: 50px;
-  margin-bottom: 80px;
-  padding-bottom: 80px;
-  transition: all 0.3s ease;
+  margin-top: 10rem;
+  padding-bottom: 5rem;
 
   img{
+    transition: all 0.3s ease-in-out;
     &:hover{
-
+      transform: scale(1.2);
 
     }  
   }
 }
 
 
-.block-3{
-  height: 500px;
+.projects{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
 }
 
