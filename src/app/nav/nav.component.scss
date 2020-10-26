@@ -49,9 +49,6 @@ body{
 .nav-top{
   height: 50px;
   display: block;
-
-  padding-right: 30px;
-
 }
 
 .nav-wrapper{
@@ -62,14 +59,18 @@ body{
 
   display: flex;
   justify-content: space-evenly;
+
+  @media (max-width: 50rem){
+    width: 100%;
+
+  }
+  
 }
 .nav-button{
   margin-top: 10px;
   margin-bottom: 5px;
   height:80%;
-  padding-left: 20px;
-  padding-right: 50px;
-
+ 
   display:flex;justify-content:center;align-items:center;
   a{
     color: $color-mint;

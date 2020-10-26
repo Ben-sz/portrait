@@ -202,15 +202,16 @@ text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 2rem;
-  margin-right: 2rem;
+
   text-align: center;
   color:  white;
+  margin: 2rem 1rem;
+
     h1{
-      color:  white;
-      font-size: 30px;
+
+      font-size: 48px;
       font-weight: normal;
-      line-height: 40px;
+      line-height: 48px;
       
       transition: all 0.3s ease-in-out;
       &:hover{
