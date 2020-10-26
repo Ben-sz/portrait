@@ -33,6 +33,7 @@ body{
   img{
     /* height: 20rem; */
     width: 15rem;
+    margin-left: 10px;
   }
 }
 
@@ -43,6 +44,7 @@ body{
   color: $color-black;
   align-items: flex-end; 
   justify-content: center;
+  margin-right: 10px;
 
   h1 {
     color: black;
@@ -315,6 +317,7 @@ text-align: center;
   
       letter-spacing: -0.055em;
       margin: 0;
+      margin-top: -15px;
      
     }
     h3{
