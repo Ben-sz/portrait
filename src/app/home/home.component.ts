@@ -19,6 +19,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('xpRight') xpRight: any;
   xpRightHtml: HTMLElement;
 
+  @ViewChild('projectsLeft') projectsLeft: any;
+  projectsLeftHtml: HTMLElement;
+  @ViewChild('projectsRight') projectsRight: any;
+  projectsRightHtml: HTMLElement;
+
+  windowWidth: number;
+  windowHeight: number;
+
 
   faGithub = faGithub;
   faLinkedinIn = faLinkedinIn;
@@ -32,16 +40,25 @@ export class HomeComponent implements OnInit, OnDestroy {
    
 
   ngAfterViewInit(){
-    
+    this.windowHeight = window.innerHeight;
+    this.windowWidth = window.innerWidth;
 
+    
     this.scrollHtml = this.scrollElement.nativeElement;
     this.portraitHtml = this.portraitElement.nativeElement;
     this.xpLeftHtml = this.xpLeft.nativeElement;
     this.xpRightHtml = this.xpRight.nativeElement;
+    this.projectsLeftHtml = this.projectsLeft.nativeElement;
+    this.projectsRightHtml = this.projectsRight.nativeElement;
 
 
-    this.xpRightHtml.style.transform = 'translate3d('+ window.innerWidth + 'px,0px,0px)';
-    this.xpLeftHtml.style.transform = 'translate3d'+ -window.innerWidth + 'px,0px,0px)';
+    console.log('translate3d('+ window.innerWidth/2 + 'px,0px,0px)')
+
+    this.xpRightHtml.style.transform = 'translate3d('+ window.innerWidth/2 + 'px,0px,0px)';
+    this.xpLeftHtml.style.transform = 'translate3d('+ (-window.innerWidth) + 'px,0px,0px)';
+
+    this.projectsRightHtml.style.transform = 'translate3d('+ window.innerWidth/2 + 'px,0px,0px)';
+    this.projectsLeftHtml.style.transform = 'translate3d('+ (-window.innerWidth) + 'px,0px,0px)';
   }
   
 
@@ -58,35 +75,29 @@ export class HomeComponent implements OnInit, OnDestroy {
  */
 
     const n = document.documentElement.scrollTop
-  
-    console.log('scrollhtml', this.xpRightHtml.getBoundingClientRect())
-    
-
-   /*  console.log(n) */
  
     let rate = n * 1.2;
     this.scrollHtml.style.transform = 'translate3d(' + rate+ 'px,0px,0px)';
-    this.portraitHtml.style.transform = 'translate3d(' + -rate + 'px,0px,0px)'; 
+    this.portraitHtml.style.transform = 'translate3d(' + rate + 'px,0px,0px)'; 
 
     /* xp scroll */
-
-
     let xpRightatTop = this.xpRightHtml.getBoundingClientRect();
-    let xpRightatBottom = xpRightatTop.y-window.innerHeight;
-    console.log('xp', xpRightatBottom)
+    let xpTopReached = xpRightatTop.y-window.innerHeight;
+    let xpBotReached = xpRightatTop.bottom-window.innerHeight
 
 
 
 
-    let xpRateRight =   Math.max(window.innerWidth-(n*3) , 0) + -1*Math.min(1600*1.7-(n*1.7) , 0);
-    /* console.log(xpRateRight) */
-    let xpRateLeft =   Math.max(window.innerWidth-(n*3) , 0) - -1*Math.min(1600*1.7-(n*1.7) , 0);
-/* 
+    let xpRateRight = Math.max(xpTopReached+150, 0) +  -Math.min(xpBotReached+150, 0);
+
+    let xpRateLeft = -1*(Math.max(xpTopReached+150, 0) +  -Math.min(xpBotReached+150, 0));
+    console.log(xpRateRight,xpRateLeft)
+ 
     this.xpRightHtml.style.transform = 'translate3d(' + xpRateRight + 'px,0px,0px)';
-    this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)'; */
+    this.xpLeftHtml.style.transform = 'translate3d(' + xpRateLeft*6 + 'px,0px,0px)';
  
   } 
 
-
-
 }
+
+

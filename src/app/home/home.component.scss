@@ -34,7 +34,7 @@ body{
   img{
     /* height: 20rem; */
     width: 15rem;
-    margin-left: 10px;
+     margin-left: 10px; 
   }
 }
 
@@ -343,4 +343,16 @@ text-align: center;
     text-align: center;
     align-items: center;
   }
+
+  img{
+     margin-left: 0; 
+  }
 }
+
+@media (max-width: 755px) {
+  .top-1{
+   margin-bottom: 2rem;
+  }
+
+}
+
