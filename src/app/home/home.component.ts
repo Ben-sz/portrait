@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 
 
@@ -32,13 +32,16 @@ export class HomeComponent implements OnInit, OnDestroy {
    
 
   ngAfterViewInit(){
+    
+
     this.scrollHtml = this.scrollElement.nativeElement;
     this.portraitHtml = this.portraitElement.nativeElement;
     this.xpLeftHtml = this.xpLeft.nativeElement;
     this.xpRightHtml = this.xpRight.nativeElement;
 
-    this.xpRightHtml.style.transform = 'translate3d(952px,0px,0px)';
-    this.xpLeftHtml.style.transform = 'translate3d(-952px,0px,0px)';
+
+    this.xpRightHtml.style.transform = 'translate3d('+ window.innerWidth + 'px,0px,0px)';
+    this.xpLeftHtml.style.transform = 'translate3d'+ -window.innerWidth + 'px,0px,0px)';
   }
   
 
@@ -50,25 +53,40 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   scrollEvent = (event: any): void => {
-    const n = event.srcElement.scrollingElement.scrollTop;
-    let g = window.pageYOffset;
-    console.log('n', n)
-    console.log('g', g)
-   /*  console.log(n) */
+    /* console.log('I am scrolling')
+    console.log('scrolly', window.scrollY)
+ */
 
+    const n = document.documentElement.scrollTop
+  
+    console.log('scrollhtml', this.xpRightHtml.getBoundingClientRect())
+    
+
+   /*  console.log(n) */
+ 
     let rate = n * 1.2;
     this.scrollHtml.style.transform = 'translate3d(' + rate+ 'px,0px,0px)';
-    this.portraitHtml.style.transform = 'translate3d(' + -rate + 'px,0px,0px)';
+    this.portraitHtml.style.transform = 'translate3d(' + -rate + 'px,0px,0px)'; 
 
     /* xp scroll */
 
-   
 
-    let xpRateRight =   Math.max(952-(n*3) , 0) + -1*Math.min(1600*1.7-(n*1.7) , 0);
-    let xpRateLeft =   Math.max(952-(n*3) , 0) - -1*Math.min(1600*1.7-(n*1.7) , 0);
+    let xpRightatTop = this.xpRightHtml.getBoundingClientRect();
+    let xpRightatBottom = xpRightatTop.y-window.innerHeight;
+    console.log('xp', xpRightatBottom)
 
+
+
+
+    let xpRateRight =   Math.max(window.innerWidth-(n*3) , 0) + -1*Math.min(1600*1.7-(n*1.7) , 0);
+    /* console.log(xpRateRight) */
+    let xpRateLeft =   Math.max(window.innerWidth-(n*3) , 0) - -1*Math.min(1600*1.7-(n*1.7) , 0);
+/* 
     this.xpRightHtml.style.transform = 'translate3d(' + xpRateRight + 'px,0px,0px)';
-    this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)';
+    this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)'; */
  
   } 
+
+
+
 }
