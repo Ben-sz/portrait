@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'cocolio', component: CocolioComponent },
   { path: '', component: HomeComponent },
   
+  
 ];
 
 @NgModule({
