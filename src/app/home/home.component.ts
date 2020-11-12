@@ -1,5 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
+import { faBoxTissue } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   windowWidth: number;
   windowHeight: number;
-
+  fadeValue: number;
 
   faGithub = faGithub;
   faLinkedinIn = faLinkedinIn;
@@ -57,13 +58,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log('translate3d('+ window.innerWidth/2 + 'px,0px,0px)')
     console.log(window)
 
-    this.xpRightHtml.style.transform = 'translate3d('+ window.innerWidth + 'px,0px,0px)';
-    this.xpLeftHtml.style.transform = 'translate3d('+ (-window.innerWidth) + 'px,0px,0px)';
+    if (window.innerWidth > 950){
+      this.fadeValue = window.innerWidth/2;
+    }
+    else{
+      this.fadeValue = window.innerWidth/2;
+    }
+
+    this.xpRightHtml.style.transform = 'translate3d('+ this.fadeValue + 'px,0px,0px)';
+    this.xpLeftHtml.style.transform = 'translate3d('+ (-this.fadeValue) + 'px,0px,0px)';
 /* 
     this.projectsRightHtml.style.transform = 'translate3d('+ window.innerWidth/2 + 'px,0px,0px)';
     this.projectsLeftHtml.style.transform = 'translate3d('+ (-window.innerWidth) + 'px,0px,0px)'; */
-    this.startX = this.xpRightHtml.getBoundingClientRect().y;
-    
+    this.startX = this.xpRightHtml.getBoundingClientRect().y - this.windowHeight;
+    console.log('start',  this.startX )
+
 
   }
   
@@ -90,14 +99,27 @@ export class HomeComponent implements OnInit, OnDestroy {
     let xpBounding = this.xpRightHtml.getBoundingClientRect();
     let xpTopInView = xpBounding.y-window.innerHeight;
     let xpBotoutOfView = xpBounding.bottom-window.innerHeight
-
+    console.log(xpBounding)
 
     /*    xpTopInView + x - point at which element starts to fade in*/
     /*    *2 a scrolling speed*/
     /* this.startX is used to reset to default when scrolling bac */
- 
-    var xpRateLeft = (Math.max((this.windowWidth + (xpTopInView)*2)+this.startX, 0)) -(Math.min((this.windowWidth + (xpBotoutOfView)*2), 0))
+
+
+    if (this.fadeValue > 475){
+/*       var xpRateLeft = (Math.max(((this.fadeValue + (xpTopInView))+this.startX), 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0));
+ */      var xpRateLeft = (Math.max(this.fadeValue - n*2, 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0));
+        console.log('fade', this.fadeValue,  xpTopInView, this.startX);
+        console.log((Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0)));
+    }
+    else{
+      var xpRateLeft = (Math.max(((this.fadeValue + (xpTopInView))), 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0))
+    }
+    console.log(this.fadeValue, (xpTopInView), this.startX)
+    console.log(Math.max((this.fadeValue + xpTopInView+ this.startX), 0), 'b', (Math.min((this.fadeValue/2 + (xpBotoutOfView)*1.2), 0)));
   
+
+
     this.xpRightHtml.style.transform = 'translate3d(' + xpRateLeft + 'px,0px,0px)';
     this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)';
 
@@ -107,10 +129,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     let projectsBotOutofView = projectsBounding.y+projectsBounding.height;
 
 
-    var projectsRateRight = (Math.max((this.windowWidth + (projectsTopInView)*2), 0)) -(Math.min(( (projectsBotOutofView-200)*2 ), 0) );
-    console.log('botout',projectsBotOutofView)
-    console.log('what', Math.max((this.windowWidth + (projectsTopInView)*2), 0), 'a', (Math.min(( (projectsBotOutofView)*2 -150), 0) ));
-
+    var projectsRateRight = (Math.max((this.fadeValue + (projectsTopInView)*1.2), 0)) -(Math.min(( (projectsBotOutofView-200)*1.2 ), 0) );
      this.projectsRightHtml.style.transform = 'translate3d(' + projectsRateRight + 'px,0px,0px)';
       this.projectsLeftHtml.style.transform = 'translate3d(' + -projectsRateRight + 'px,0px,0px)';
  
