@@ -96,8 +96,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     /*    *2 a scrolling speed*/
     /* this.startX is used to reset to default when scrolling bac */
  
-    console.log('ez a kezdő top érték', this.startX)
-    var xpRateLeft = (Math.max((this.windowWidth + (xpTopInView)*3)+this.startX, 0)) -(Math.min((this.windowWidth + (xpBotoutOfView)*3), 0))
+    var xpRateLeft = (Math.max((this.windowWidth + (xpTopInView)*2)+this.startX, 0)) -(Math.min((this.windowWidth + (xpBotoutOfView)*2), 0))
   
     this.xpRightHtml.style.transform = 'translate3d(' + xpRateLeft + 'px,0px,0px)';
     this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)';
@@ -105,14 +104,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     /* projects scroll */
     let projectsBounding = this.projectsLeftHtml.getBoundingClientRect();
     let projectsTopInView = projectsBounding.y-window.innerHeight;
-    let projectsBotOutofView = projectsBounding.bottom-window.innerHeight
+    let projectsBotOutofView = projectsBounding.y+projectsBounding.height;
 
-    var projectsRateRight = (Math.max((this.windowWidth + (projectsTopInView)*3), 0)) -(Math.min((this.windowWidth + (projectsBotOutofView)*3), 0))
 
-    this.projectsRightHtml.style.transform = 'translate3d(' + projectsRateRight + 'px,0px,0px)';
-    this.projectsLeftHtml.style.transform = 'translate3d(' + -projectsRateRight + 'px,0px,0px)';
+    var projectsRateRight = (Math.max((this.windowWidth + (projectsTopInView)*2), 0)) -(Math.min(( (projectsBotOutofView-200)*2 ), 0) );
+    console.log('botout',projectsBotOutofView)
+    console.log('what', Math.max((this.windowWidth + (projectsTopInView)*2), 0), 'a', (Math.min(( (projectsBotOutofView)*2 -150), 0) ));
+
+     this.projectsRightHtml.style.transform = 'translate3d(' + projectsRateRight + 'px,0px,0px)';
+      this.projectsLeftHtml.style.transform = 'translate3d(' + -projectsRateRight + 'px,0px,0px)';
  
- 
+  
   } 
 
 }
