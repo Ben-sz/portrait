@@ -85,9 +85,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   scrollEvent = (event: any): void => {
-    /* console.log('I am scrolling')
-    console.log('scrolly', window.scrollY)
- */
+
+ 
 
     const n = document.documentElement.scrollTop
  
@@ -107,16 +106,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
     if (this.fadeValue > 475){
-/*       var xpRateLeft = (Math.max(((this.fadeValue + (xpTopInView))+this.startX), 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0));
- */      var xpRateLeft = (Math.max(this.fadeValue - n*2, 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0));
-        console.log('fade', this.fadeValue,  xpTopInView, this.startX);
-        console.log((Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0)));
+      var xpRateLeft = (Math.max(this.fadeValue - n*2, 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0));
     }
     else{
       var xpRateLeft = (Math.max(((this.fadeValue + (xpTopInView))), 0)) -(Math.min((this.fadeValue-150 + (xpBotoutOfView)*1.2), 0))
     }
-    console.log(this.fadeValue, (xpTopInView), this.startX)
-    console.log(Math.max((this.fadeValue + xpTopInView+ this.startX), 0), 'b', (Math.min((this.fadeValue/2 + (xpBotoutOfView)*1.2), 0)));
+
   
 
 
