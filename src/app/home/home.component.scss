@@ -152,12 +152,15 @@ body{
 
 .xp-box{
   border-radius: 31px;
+  display: grid;
+  place-items: center;
 }
 
 
 .xp-text{
   margin-left: 2rem;
   margin-right: 2rem;
+  margin-bottom: 4rem;
   h1{
     color:  white;
     font-size: 30px;
