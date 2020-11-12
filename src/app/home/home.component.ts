@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     let projectsTopInView = projectsBounding.y-window.innerHeight;
     let projectsBotOutofView = projectsBounding.bottom-window.innerHeight
 
-    var projectsRateRight = (Math.max((this.windowWidth + (projectsTopInView)*3)+this.startX, 0)) -(Math.min((this.windowWidth + (projectsBotOutofView)*3), 0))
+    var projectsRateRight = (Math.max((this.windowWidth + (projectsTopInView)*3), 0)) -(Math.min((this.windowWidth + (projectsBotOutofView)*3), 0))
 
     this.projectsRightHtml.style.transform = 'translate3d(' + projectsRateRight + 'px,0px,0px)';
     this.projectsLeftHtml.style.transform = 'translate3d(' + -projectsRateRight + 'px,0px,0px)';
