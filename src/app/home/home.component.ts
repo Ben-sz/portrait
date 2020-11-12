@@ -150,7 +150,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     let contactsBotOutofView = contactsBounding.y+contactsBounding.height;
 
 
-    var contactsRateRight = (Math.max((this.fadeValue + (contactsTopInView)*1.2), 0)) -(Math.min(( (contactsBotOutofView-200)*1.2 ), 0) );
+    var contactsRateRight = (Math.max((this.fadeValue + (contactsTopInView+150)*2), 0)) -(Math.min(( (contactsBotOutofView-150)*1.2 ), 0) );
     this.contactsRightHtml.style.transform = 'translate3d(' + contactsRateRight + 'px,0px,0px)';
     this.contactsLeftHtml.style.transform = 'translate3d(' + -contactsRateRight + 'px,0px,0px)';
 
@@ -162,7 +162,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     let linksBotOutofView = linksBounding.y+linksBounding.height;
 
 
-    var linksRateRight = (Math.max((this.fadeValue + (linksTopInView)*1.2), 0)) -(Math.min(( (linksBotOutofView-200)*1.2 ), 0) );
+    var linksRateRight = (Math.max((this.fadeValue + (linksTopInView+0)*4), 0)) -(Math.min(( (linksBotOutofView-150)*1 ), 0) );
     this.linksRightHtml.style.transform = 'translate3d(' + linksRateRight + 'px,0px,0px)';
     this.linksLeftHtml.style.transform = 'translate3d(' + -linksRateRight + 'px,0px,0px)';
 
