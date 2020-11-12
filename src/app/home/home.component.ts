@@ -91,54 +91,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     let xpTopReached = xpRightatTop.y-window.innerHeight;
     let xpBotReached = xpRightatTop.bottom-window.innerHeight
 
-/*     console.log(xpRightatTop)
     console.log(xpTopReached)
-    console.log(xpBotReached) */
-   /*  console.log(xpRightatTop) */
-
-    console.log(xpTopReached)
-
-    
-/* van init érták: windowWidth/2 -> 0 */
-
-/*     let xpRateRight = Math.max(xpTopReached+150, 0) +  -Math.min(xpBotReached+150, 0);
- */ 
-      /* top reached -150  és 150 között a változó álljon 0ra */
 
     /*    xptopteached+25 - point at which element starts to fade in*/
     /*    *2 a scrolling speed*/
-    /* topreached+150 -150 */
-    /* topreached -150 nél windowWidth */
-    /* topreached 400nál 0 */
-   /*  topreached 0 akkor windowwidth */
-
-   /* topreached -100 */
-
-    /* azért nem tűnik el, mert alapból látszik, a topreached indig 0 */
-
-
-/*     var xpRateLeft = (Math.max((this.windowWidth + (xpTopReached)*3), 0))
- */  console.log("xptop", (xpRightatTop), (this.windowWidth + (xpTopReached+150))*3, "scroll n ", n);
-    console.log('ez a kezdő top érték', this.startX)
-    var xpRateLeft = (Math.max((this.windowWidth + (xpTopReached)*3), 0)) -(Math.min((this.windowWidth + (xpBotReached)*3), 0))
-
-   /*  if (xpTopReached <= -150){
-
-      var xpRateLeft = (Math.max((this.windowWidth + (xpTopReached+150)*3), 0))
-
- } */
-
-  /*   if (xpBotReached <= 150){
-      var xpRateLeft = (Math.max(this.windowWidth/2 - n, 0))
-    } */
-/*     console.log('xprate', xpRateLeft)
- */
-
-
-
-   /*  let xpRateLeft = -1*(Math.max(xpTopReached+150, 0) +  -Math.min(xpBotReached+150, 0)); */
- /*    console.log(xpRateRight,xpRateLeft) */
+    /* this.startX is used to reset to default when scrolling bac */
  
+    console.log('ez a kezdő top érték', this.startX)
+    var xpRateLeft = (Math.max((this.windowWidth + (xpTopReached)*3)+this.startX, 0)) -(Math.min((this.windowWidth + (xpBotReached)*3), 0))
+    console.log("xptop", (this.windowWidth + (xpTopReached)*3), "scroll n ", n);
+
     this.xpRightHtml.style.transform = 'translate3d(' + xpRateLeft + 'px,0px,0px)';
     this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)';
 
