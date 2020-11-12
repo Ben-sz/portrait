@@ -87,36 +87,31 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.portraitHtml.style.transform = 'translate3d(' + -rate + 'px,0px,0px)'; 
 
     /* xp scroll */
-    let xpRightatTop = this.xpRightHtml.getBoundingClientRect();
-    let xpTopReached = xpRightatTop.y-window.innerHeight;
-    let xpBotReached = xpRightatTop.bottom-window.innerHeight
+    let xpBounding = this.xpRightHtml.getBoundingClientRect();
+    let xpTopInView = xpBounding.y-window.innerHeight;
+    let xpBotoutOfView = xpBounding.bottom-window.innerHeight
 
-    console.log(xpTopReached)
 
-    /*    xptopteached+25 - point at which element starts to fade in*/
+    /*    xpTopInView + x - point at which element starts to fade in*/
     /*    *2 a scrolling speed*/
     /* this.startX is used to reset to default when scrolling bac */
  
     console.log('ez a kezdő top érték', this.startX)
-    var xpRateLeft = (Math.max((this.windowWidth + (xpTopReached)*3)+this.startX, 0)) -(Math.min((this.windowWidth + (xpBotReached)*3), 0))
-    console.log("xptop", (this.windowWidth + (xpTopReached)*3), "scroll n ", n);
-
+    var xpRateLeft = (Math.max((this.windowWidth + (xpTopInView)*3)+this.startX, 0)) -(Math.min((this.windowWidth + (xpBotoutOfView)*3), 0))
+  
     this.xpRightHtml.style.transform = 'translate3d(' + xpRateLeft + 'px,0px,0px)';
     this.xpLeftHtml.style.transform = 'translate3d(' + -xpRateLeft + 'px,0px,0px)';
 
     /* projects scroll */
- /*    let projectsRightatTop = this.projectsRightHtml.getBoundingClientRect();
-    let projectsTopReached = projectsRightatTop.y-window.innerHeight;
-    let projectsBotReached = projectsRightatTop.bottom-window.innerHeight
+    let projectsBounding = this.projectsLeftHtml.getBoundingClientRect();
+    let projectsTopInView = projectsBounding.y-window.innerHeight;
+    let projectsBotOutofView = projectsBounding.bottom-window.innerHeight
 
-
-    let projectsRateRight = -1*(Math.max(projectsTopReached+150, 0) +  -Math.min(projectsBotReached+150, 0));
-    let projectsRateLeft = Math.max(projectsTopReached+150, 0) +  -Math.min(projectsBotReached+150, 0);
-    console.log(projectsRateRight,projectsRateLeft)
+    var projectsRateRight = (Math.max((this.windowWidth + (projectsTopInView)*3)+this.startX, 0)) -(Math.min((this.windowWidth + (projectsBotOutofView)*3), 0))
 
     this.projectsRightHtml.style.transform = 'translate3d(' + projectsRateRight + 'px,0px,0px)';
-    this.projectsLeftHtml.style.transform = 'translate3d(' + projectsRateLeft*6 + 'px,0px,0px)';
- */
+    this.projectsLeftHtml.style.transform = 'translate3d(' + -projectsRateRight + 'px,0px,0px)';
+ 
  
   } 
 
